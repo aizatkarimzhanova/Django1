@@ -1,20 +1,24 @@
 <center>
+
 <button><a href="{% url 'yaziki:sozdat_blog' %}">Добавить</a></button>
 
 <br><br>
 
 <form action="/search/" method="GET">
-    <input type="text" type="search" name="s" placeholder="Найти язык програмирование" >
+    <input type="text" type="search" name="s" placeholder="Найти язык программирования">
     <button type="submit">Найти</button>
 </form>
 
-{% for i in prog_lang %}
-<h1>{{ i.title }}</h1>
-<p><a href="/prog_lang/{{ i.id }}/">Подробнее</a></p>
 
-<p> <a href="/prog_lang/{{ i.id }}/delete/">Удалить</a></p>
-<p> <a href="/prog_lang/{{ i.id }}/update/">Редактировать</a></p>
+{% for i in prog_lang %}
+
+<h1>{{ i.title }}</h1>
+<p> <a href="/prog_lang/{{ i.id }}/">Подробнее</a></p>
+
+<p> <a href="/prog_lang/{{ i.id }}/delete/">Удалить</a> </p>
+<p> <a href="/prog_lang/{{ i.id }}/update/">Редактировать</a> </p>
 {% endfor %}
+
 
 <div class="pagination">
         <span class="step-links">
@@ -34,10 +38,10 @@
         </span>
     </div>
 
-<form action="/login/" method="post">
-    {% csrf_token %}
+<form action="{%  url 'login'  %}" method="post">
+    {%  csrf_token  %}
     <button type="submit">Выйти из аккаунта</button>
-</form>
+</form> 
 
 
 </center>
